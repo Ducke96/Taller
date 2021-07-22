@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+    integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  <title>Mi primer Banco</title>
+
+
+
+</head>
+
+<body >
+
+  <div class="position-absolute top-50 start-0 translate-middle-y">
+
+    <div class="d-flex align-items-start m-4">
+      <div class="nav flex-column nav-pills me-3  " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active btn-warning" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab"
+          aria-controls="v-pills-home " aria-selected="true">Usuarios</a>
+        <br>
+        <br>
+        <a class="nav-link btn-warning" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab"
+          aria-controls="v-pills-profile" aria-selected="false">Consignar</a>
+          <br>
+          <br>
+        <a class="nav-link btn-warning" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab"
+          aria-controls="v-pills-messages" aria-selected="false">Retirar</a>
+          <br>
+          <br>
+        <a class="nav-link btn-warning" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab"
+          aria-controls="v-pills-settings" aria-selected="false">Crear Producto</a>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="img/icon2.jfif" alt="" width="30" height="24" style="border-radius: 150px;" class="d-inline-block align-top">
+        <span> Banco de la Republica de Colombia 2 </span> 
+    </a>
+  </div>
+</nav>
+
+
+  <div class="container position-absolute top-50 start-50 translate-middle">
+
+
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+        <h1>Datos Usuarios</h1>
+        <button class="btn btn-info" id="boton" onclick="ReloadDatos()">Actualizar</button>
+        <table class="table my-3">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Born</th>
+              <th scope="col">Cuentas</th>
+              <th scope="col">Editar Cuentas</th>
+              <th scope="col">Creditos</th>
+              <th scope="col">Editar Creditos</th>
+            </tr>
+          </thead>
+          <tbody id="tabla">
+          </tbody>
+        </table>
+
+        <h1>Datos Cuentas Usuario : <span id="usuarioCuenta"></span> </h1>
+        <table class="table my-3">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">state</th>
+              <th scope="col">Saldo</th>
+
+              <th scope="col">Editar</th>
+
+            </tr>
+          </thead>
+          <tbody id="tablaCuentas">
+          </tbody>
+        </table>
+
+
+        <h1>Datos Creditos Usuario : <span id="usuarioCredito"></span></h1>
+        <table class="table my-3">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">state</th>
+              <th scope="col">Deuda</th>
+
+              <th scope="col">Editar</th>
+
+            </tr>
+          </thead>
+          <tbody id="tablaCreditos">
+          </tbody>
+        </table>
+        
+
+
+      </div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+        <h1> Consignar </h1>
+        <input type="text" id="idCustomer" placeholder="id del propietario" class="form-control my-3">
+        <input type="text" id="idCuenta" placeholder="id del producto" class="form-control my-3">
+        <select name="Producto" id="Producto" class="form-control my-3">
+          <option value="Cuenta">Cuenta</option>
+          <option value="Credito">Credito</option>
+        </select>
+        <input type="text" id="Cantidad" placeholder="Cantidad" class="form-control my-3">
+
+        <button class="btn btn-info" id="boton" onclick="consignar()">consignar</button>
+
+
+
+      </div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
+
+
+        <h1> retirar</h1>
+        <input type="text" id="idCustomer1" placeholder="idCustomer" class="form-control my-3">
+        <input type="text" id="idCuenta1" placeholder="idCuenta" class="form-control my-3">
+
+        <input type="text" id="Cantidad1" placeholder="Cantidad" class="form-control my-3">
+
+        <button class="btn btn-info" id="boton" onclick="retirar()">retirar</button>
+
+
+
+
+      </div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+
+        <h1> Crear Producto </h1>
+        <input type="text" id="idCustomerC" placeholder="id del propietario" class="form-control my-3">
+        <select name="Producto" id="ProductoC" class="form-control my-3">
+          <option value="Cuenta">Cuenta</option>
+          <option value="Credito">Credito</option>
+        </select>
+        <input type="text" id="CantidadC" placeholder="Cantidad" class="form-control my-3">
+
+        <button class="btn btn-info" id="boton" onclick="Crear()">Crear</button>
+
+      </div>
+
+
+      
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+      integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+      crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
